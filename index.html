@@ -152,7 +152,7 @@
                 <h3>
                     Abstract
                 </h3>
-                <image src="imgs/teaser.png" style="width:100%;" class="img-responsive center-block" alt="overview"></image>
+                <image src="imgs/teaser.png" style="width:80%;" class="img-responsive center-block" alt="overview"></image>
                 <br>
                 <p class="text-justify">
                     Physically-based rendering (PBR) materials are fundamental to photorealistic graphics, yet their creation remains labor-intensive and requires specialized expertise. While generative models have advanced material synthesis, existing methods lack a unified representation bridging natural image appearance and PBR properties, leading to fragmented task-specific pipelines and inability to leverage large-scale RGB image data. We present MatPedia, a foundation model built upon a novel joint RGB-PBR representation that compactly encodes materials into two interdependent latents: one for RGB appearance and one for the four PBR maps encoding complementary physical properties. By formulating them as a 5-frame sequence and employing video diffusion architectures, MatPedia naturally captures their correlations while transferring visual priors from RGB generation models. This joint representation enables a unified framework handling multiple material tasks—text-to-material generation, image-to-material generation, and intrinsic decomposition—within a single architecture. Trained on MatHybrid-410K, a mixed corpus combining PBR datasets with large-scale RGB images, MatPedia achieves native 1024×1024 synthesis that substantially surpasses existing approaches in both quality and diversity.
@@ -166,7 +166,7 @@
                 <h3>
                     Pipeline
                 </h3>
-                <image src="imgs/pipeline.jpg" style="width:100%;" class="img-responsive center-block" alt="overview"></image>
+                <image src="imgs/pipeline.jpg" style="width:80%;" class="img-responsive center-block" alt="overview"></image>
                 <br>
                 <p class="text-justify">
                     Pipeline of the proposed MatPedia framework. <strong>Left:</strong> The <strong>3D VAE</strong> encodes a shaded RGB frame together with optional PBR maps into a <em>joint RGB-PBR latent representation</em>, where PBR maps are conditioned on the RGB appearance. This compact representation supports both (a) shaded RGB decoding and (b) PBR decoding at native 1024×1024 resolution. <strong>Right:</strong> The <strong>DiT</strong>, initialized from large-scale video generation models and adapted via LoRA, operates on the joint latents to perform three tasks: <em>Text-to-PBR</em> (generate RGB/PBR from material captions), <em>Image-to-PBR</em> (generate planar RGB/PBR from distorted input images), and <em>Material Decomposition</em> (recover PBR maps from natural images). DiT blocks integrate self-attention (SA), cross-attention (CA), and LoRA modules to enable flexible conditioning across modalities.
@@ -180,7 +180,7 @@
             <h3>
                 Text-to-Material Generation
             </h3>
-            <image src="imgs/text_pbr.jpg" style="width:100%;" class="img-responsive center-block" alt="overview"></image>
+            <image src="imgs/text_pbr.jpg" style="width:80%;" class="img-responsive center-block" alt="overview"></image>
             <br>
             <p class="text-justify">
                 Qualitative comparison of text-conditioned PBR material generation among our method, MatFuse, ControlMat, and MaterialPicker. For each prompt, we show the generated PBR maps (Basecolor, Normal, Roughness, Metallic) followed by a render view under point-light illumination. We note that MatFuse generates a specular map rather than a metallic map.
@@ -192,7 +192,7 @@
             <h3>
                 Image-to-Material Generation
             </h3>
-            <image src="imgs/distored_image_pbr.jpg" style="width:100%;" class="img-responsive center-block" alt="overview"></image>
+            <image src="imgs/distored_image_pbr.jpg" style="width:80%;" class="img-responsive center-block" alt="overview"></image>
             <br>
             <p class="text-justify">
                 Qualitative comparison of image-conditioned PBR generation. For each sample, the first column shows the distorted input image (cropped from the scene), and the second to last columns present the generated material maps together with a rendering under point-light illumination. Our method produces geometrically flattened and artifact-free maps, while MatFuse shows reduced roughness fidelity and Material Palette retains geometric distortions from the input.
@@ -205,7 +205,7 @@
             <h3>
                 Material Decomposition
             </h3>
-            <image src="imgs/image_pbr.jpg" style="width:100%;" class="img-responsive center-block" alt="overview"></image>
+            <image src="imgs/image_pbr.jpg" style="width:80%;" class="img-responsive center-block" alt="overview"></image>
             <br>
             <p class="text-justify">
                 Qualitative comparison of material decomposition. For each sample, the first column shows the planar input image, and the second to last columns present the generated material maps together with a rendering under environment lighting. Our method produces consistent structural patterns, yielding rendered views that closely match the input appearance.
