@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>MatPedia</title>
+
+    <meta name="description" content="MatPedia: A Universal Generative Foundation for High-Fidelity Material Synthesis">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+
+    <script src="js/app.js"></script>
+	
+	
+	<link rel="stylesheet" href="css/dics.min.css">
+    <script src="scripts/dics.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', domReady);
+        function domReady() {
+            for (const e of document.querySelectorAll(".b-dics")) {
+                new Dics({
+                    container: e,
+                    textPosition: "top"
+                });
+            }
+        }
+    </script>
+	
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                MatPedia: A Universal Generative Foundation for High-Fidelity Material Synthesis
+                <br>
+                <small>
+                    CVPR 2026
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        Di Luo*
+                        </a>
+                        <br>Nankai University<br>
+                    </li>
+                    <li>
+                        <a href="https://scholar.google.com/citations?hl=zh-CN&user=PFqjlAwAAAAJ" target="_blank">
+                        Shuhui Yang*
+                        </a>
+                        <br>Tencent Hunyuan<br>
+                    </li>
+                    <li>
+                        Mingxin Yang*
+                        <br> Tecent Hunyuan<br>
+                    </li>
+                    <li>
+                        Jiawei Lu
+                        </a>
+                        <br> Nankai University<br>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        Yixuan Tang
+                        </a>
+                        <br> Xi'an Jiaotong University<br>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="https://xthan.github.io/" target="_blank">
+                        Xintong Han
+                        </a>
+                        <br> Tecent Hunyuan<br>
+                    </li>
+                    <li>
+                        <a href="https://scholar.google.com/citations?hl=zh-CN&user=qTIpn-8AAAAJ" target="_blank">
+                        Zhuo Chen
+                        </a>
+                        <br> Tecent Hunyuan<br>
+                    </li>
+                    <li>
+                        <a href="https://wangningbei.github.io/" target="_blank">
+                        Beibei Wang&#10013
+                        </a>
+                        <br>Nanjing University<br>
+                    </li>
+                    <li>
+                        Chunchao Guo&#10013
+                        <br>Tecent Hunyuan<br>
+                    </li><br>
+                </ul>
+            </div>
+        </div>
+		
+		<div class="row">
+            <div class="col-md-12 text-center">
+                *Contribute equally  &#10013Corresponding author
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+							<a href=https://rody-nkcs.github.io/SVBRDF/paper/SigA-2024.pdf target="_blank">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            	
+                                <h4><strong>Codes</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Video
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3>
+                    Abstract
+                </h3>
+                <image src="imgs/teaser.png" style="width:100%;" class="img-responsive center-block" alt="overview"></image>
+                <br>
+                <p class="text-justify">
+                    Physically-based rendering (PBR) materials are fundamental to photorealistic graphics, yet their creation remains labor-intensive and requires specialized expertise. While generative models have advanced material synthesis, existing methods lack a unified representation bridging natural image appearance and PBR properties, leading to fragmented task-specific pipelines and inability to leverage large-scale RGB image data. We present MatPedia, a foundation model built upon a novel joint RGB-PBR representation that compactly encodes materials into two interdependent latents: one for RGB appearance and one for the four PBR maps encoding complementary physical properties. By formulating them as a 5-frame sequence and employing video diffusion architectures, MatPedia naturally captures their correlations while transferring visual priors from RGB generation models. This joint representation enables a unified framework handling multiple material tasks—text-to-material generation, image-to-material generation, and intrinsic decomposition—within a single architecture. Trained on MatHybrid-410K, a mixed corpus combining PBR datasets with large-scale RGB images, MatPedia achieves native 1024×1024 synthesis that substantially surpasses existing approaches in both quality and diversity.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3>
+                    Pipeline
+                </h3>
+                <image src="imgs/pipeline.jpg" style="width:100%;" class="img-responsive center-block" alt="overview"></image>
+                <br>
+                <p class="text-justify">
+                    Pipeline of the proposed MatPedia framework. <strong>Left:</strong> The <strong>3D VAE</strong> encodes a shaded RGB frame together with optional PBR maps into a <em>joint RGB-PBR latent representation</em>, where PBR maps are conditioned on the RGB appearance. This compact representation supports both (a) shaded RGB decoding and (b) PBR decoding at native 1024×1024 resolution. <strong>Right:</strong> The <strong>DiT</strong>, initialized from large-scale video generation models and adapted via LoRA, operates on the joint latents to perform three tasks: <em>Text-to-PBR</em> (generate RGB/PBR from material captions), <em>Image-to-PBR</em> (generate planar RGB/PBR from distorted input images), and <em>Material Decomposition</em> (recover PBR maps from natural images). DiT blocks integrate self-attention (SA), cross-attention (CA), and LoRA modules to enable flexible conditioning across modalities.
+                </p>
+            </div>
+        </div>
+
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>
+                Text-to-Material Generation
+            </h3>
+            <image src="imgs/text_pbr.jpg" style="width:100%;" class="img-responsive center-block" alt="overview"></image>
+            <br>
+            <p class="text-justify">
+                Qualitative comparison of text-conditioned PBR material generation among our method, MatFuse, ControlMat, and MaterialPicker. For each prompt, we show the generated PBR maps (Basecolor, Normal, Roughness, Metallic) followed by a render view under point-light illumination. We note that MatFuse generates a specular map rather than a metallic map.
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>
+                Image-to-Material Generation
+            </h3>
+            <image src="imgs/distored_image_pbr.jpg" style="width:100%;" class="img-responsive center-block" alt="overview"></image>
+            <br>
+            <p class="text-justify">
+                Qualitative comparison of image-conditioned PBR generation. For each sample, the first column shows the distorted input image (cropped from the scene), and the second to last columns present the generated material maps together with a rendering under point-light illumination. Our method produces geometrically flattened and artifact-free maps, while MatFuse shows reduced roughness fidelity and Material Palette retains geometric distortions from the input.
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>
+                Material Decomposition
+            </h3>
+            <image src="imgs/image_pbr.jpg" style="width:100%;" class="img-responsive center-block" alt="overview"></image>
+            <br>
+            <p class="text-justify">
+                Qualitative comparison of material decomposition. For each sample, the first column shows the planar input image, and the second to last columns present the generated material maps together with a rendering under environment lighting. Our method produces consistent structural patterns, yielding rendered views that closely match the input appearance.
+            </p>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h3>
+            Citation
+        </h3>
+        <div class="form-group col-md-10">
+            <textarea id="bibtex" class="form-control" readonly>
+@inproceedings{Luo:2026:MatPedia,
+  title={MatPedia: A Universal Generative Foundation for High-Fidelity Material Synthesis},
+  author={Di Luo and Shuhui Yang and Mingxin Yang and Jiawei Lu and Yixuan Tang and Xintong Han and Zhuo Chen and Beibei Wang and Chunchao Guo},
+  booktitle={CVPR 2026},
+  year={2026},
+}
+</textarea>
+        </div>
+    </div>
+</div>	    
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                The website template was borrowed from <a href="https://bakedsdf.github.io/">BakedSDF</a>.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
